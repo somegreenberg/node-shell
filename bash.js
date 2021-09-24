@@ -19,6 +19,10 @@ else if(cmd === 'cat'){
   const cat = require('./cat')
   cat(file);
 }
+else if(cmd === 'curl'){
+  const curl = require('./curl')
+  curl(file);
+}
 else {
   process.stdout.write('You typed: ' + cmd);
 }
