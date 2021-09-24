@@ -1,19 +1,17 @@
+
 const fs = require('fs')
 fs
 
-module.exports = function (){
-  process.stdout.write('prompt > ')
-  process.stdin.on('data', (data) => {
-    const cmd = data.toString().trim();
-    const input = cmd.split(' ');
-    let argument = input[0];
-    let file = input[1];
-  if(argument=== 'cat'){
-    process.stdout.write(process.cat(file));
+module.exports = function (fileName){
+  // eslint-disable-next-line no-undef
+  //commandLibrary.cat(fileName);
+  fs.readFile(fileName, (err, data) => {
+    if(err) throw err;
+    console.log(data);
+    // eslint-disable-next-line no-undef
+    process.stdout.write(data);
   }
-  else {
-    process.stdout.write('You typed: ' + cmd);
-  }
+  )
     process.stdout.write('\nprompt > ')
-  })
   }
+
